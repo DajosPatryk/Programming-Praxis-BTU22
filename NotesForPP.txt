@@ -1,0 +1,72 @@
+JAVAFX:
+CONFIGURATION:
+"vmArgs": "--module-path C:/Users/snike/Documents/codeLibraries/javafx-sdk-17.0.1/lib --add-modules javafx.controls,javafx.fxml",
+
+
+klick.setOnAction(new ButtonClickHandler());
+
+public static void addCircle() {
+        bild.getGraphicsContext2D().strokeOval(counts*5, 0, 5, 5);
+        bild.getGraphicsContext2D().fillOval(counts*5, 0, 5, 5);
+    }
+
+meinZweiterButton.setOnAction(actionEvent -> {
+            try {
+                int temp = Integer.parseInt(txtFeld.getText());
+                for (int i = 0; i < temp; i++) {
+                    GUI.addCircle();
+                    GUI.counts++;
+                }
+                GUI.counter.setText(counts + " Klicks");
+            } catch (Exception e) {
+                txtFeld.setText("Das ist keine Zahl!!!");
+            }
+        });
+
+primaryStage.setScene(new Scene(uiGroup, 1920, 1080, Color.BLACK));
+primaryStage.show();
+
+
+JAVA:
+obj.getClass().getName() == "doublelinkedlist.DoubleLinkedList"
+((DoubleLinkedList) obj).length() == this.length()
+.equals(this.get(i))
+
+if (tiere[i].getClass().getName() == "AfrikanischerElefant") {
+                ((Elefant) tiere[i]).stampfen();
+                ((AfrikanischerElefant) tiere[i]).zeigeMarkenZeichen();
+            }
+
+Tier[] tiere = new Tier[4];
+        tiere[0] = new Elefant();
+        tiere[1] = new AfrikanischerElefant();
+        tiere[2] = new Löwe();
+        tiere[3] = new Wolf();
+        inspiziereTiere(tiere);
+
+
+IO Sachen:
+public static String schreibeInDatei(String text, String name) throws Exception {
+        try {
+            FileWriter fw = new FileWriter(name);
+            fw.write(text);
+            fw.close();
+            return "OK";
+        } catch (IOException e) {
+            throw new Exception(e);
+        }
+    }
+
+public static String leseAusDatei(String name) throws Exception {
+        StringBuilder result = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new FileReader(name))) {
+
+            String sCurrentLine;
+            while ((sCurrentLine = br.readLine()) != null) {
+                result.append(sCurrentLine).append("\n");
+            }
+            return result.toString();
+        } catch (IOException e) {
+            throw new Exception(e);
+        }
+    }
